@@ -3,9 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Страница входа</title>
 </head>
 <body>
-  
+  <header>
+    <div class="content">
+    </div>
+  </header>
+
+  <main>
+    <div class="content">
+        <div class="logo__div">
+          <img src="./Logo.jpg" alt="Ошибка загрузки" id="main__logo" width= "580px">
+        </div>
+        
+        <div class="form_auth">
+          <h1 class="form_auth__name">Вход в систему</h1>
+
+
+          <div class="form_auth_block">
+            <div class="form_auth_block_content">
+              <p class="form_auth_block_head_text">Авторизация</p>
+              <form class="form_auth_style" action="#" method="post">
+                <label>Введите Ваш имейл</label>
+                <input type="email" name="auth_email" placeholder="Введите Ваш имейл" required >
+                <label>Введите Ваш пароль</label>
+                <input type="password" name="auth_pass" placeholder="Введите пароль" required >
+                <button class="form_auth_button" type="submit" name="form_auth_submit">Войти</button>
+              </form>
+            </div>
+          </div>
+
+
+
+        </div>
+    </div>
+  </main>
 </body>
 </html>

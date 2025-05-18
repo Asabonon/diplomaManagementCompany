@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заявка на участие в голосовании</title>
+    <link rel="stylesheet" href="css/styleZayavka.css"> 
+</head>
+<body>
+    <header>
+        <h1>Заявка на участие в голосовании</h1>
+    </header>
+
+    <main>
+        <form id="voting-application-form">
+
+
+            <label for="candidate">Желаете быть кандидатом на главу совета?</label>
+            <select id="candidate" name="candidate" required>
+                <option value="">Выберите вариант</option>
+                <option value="yes">Да</option>
+                <option value="no">Нет</option>
+            </select>
+
+            <label for="comments">Дополнительные комментарии:</label>
+            <textarea id="comments" name="comments" rows="4"></textarea>
+
+            <button type="submit">Отправить заявку</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Система взаимодействия с пользователями. Все права защищены.</p>
+    </footer>
+
+    <script src="script.js">
+document.getElementById('voting-application-form').addEventListener('submit', async (event) => {
+    event.preventDefault(); // предотвращаем стандартное поведение формы
+
+    const candidate = document.getElementById('candidate').value;
+    const comments = document.getElementById('comments').value;
+
+    const response = await fetch('http://localhost:3000/api/applications', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ candidate, comments }),
+    });
+
+    if (response.ok) {
+        alert('Заявка успешно отправлена!');
+        document.getElementById('voting-application-form').reset(); // сброс формы
+    } else {
+        alert('Ошибка при отправке заявки');
+    }
+});
+
+
+
+
+    </script> <!-- Подключение JavaScript для обработки формы -->
+</body>
+</html>
